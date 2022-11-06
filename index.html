@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guessing Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" placeholder="Guess between 1-100: " id="guess" autofocus />
+        <button id="submit" onclick="setOutput()">Submit</button>
+        <p id="output"></p>
+    </div>
+    <style>
+        body {
+            background-color: rgb(2, 0, 36);
+            background-image: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+        }
+
+        .container {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #guess:focus {
+            border-color: orange;
+        }
+
+        #output {
+            color: white;
+        }
+    </style>
+    <script>
+        var number = Math.floor(Math.random() * 100);
+        var tries = 0;
+
+        function setOutput() {
+            document.getElementById("output").innerHTML = guess(
+                document.getElementById("guess").value
+            );
+            document.getElementById("guess").value = null;
+        }
+
+        document.getElementById("guess").addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("submit").click();
+            }
+        });
+
+        function guess(num) {
+            tries++;
+            if (num > number) {
+                return "Too high!";
+            } else if (num < number) {
+                return "Too low!";
+            } else {
+                return `You got it in ${tries} attempts!`;
+            }
+        }
+    </script>
+</body>
+
+</html>
