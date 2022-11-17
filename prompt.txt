@@ -1,0 +1,5 @@
+Create a guessing game:
+The computer will choose a random number between 1-100
+It will ask you for input
+It will tell you if your guess is too high or too low
+Once you guess the correct number, it will tell you how many tries it took to guess the number
