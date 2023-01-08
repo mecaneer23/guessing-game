@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class guess {
+public class New {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int num = Math.floor(Math.random() * 99) + 1;
+        int num = (int) Math.floor(Math.random() * 99) + 1;
         int answer;
         int tries = 0;
-        while (True) {
+        while (true) {
             System.out.println("Guess a number between 1 and 100");
             answer = scan.nextInt();
             tries++;
