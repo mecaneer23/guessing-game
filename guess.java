@@ -3,19 +3,20 @@ import java.util.Scanner;
 public class guess {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        boolean won = false;
-        // int num = (int) Math.random() * 100;
-        int num = 50;
-        while (won == false) {
+        int num = Math.floor(Math.random() * 99) + 1;
+        int answer;
+        int tries = 0;
+        while (True) {
             System.out.println("Guess a number between 1 and 100");
-            int answer = scan.nextInt();
+            answer = scan.nextInt();
+            tries++;
             if (answer > num) {
-                System.out.println("too high");
+                System.out.println("Too high!");
             } else if (answer < num) {
-                System.out.println("too low");
+                System.out.println("too low!");
             } else {
-                System.out.println("equal");
-                won = true;
+                System.out.println("You got it! It took you " + tries + " tries!");
+                break;
             }
         }
         scan.close();
